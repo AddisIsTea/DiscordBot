@@ -31,10 +31,6 @@ providers:
     base_url: https://openrouter.ai/api/v1
     api_key_env: 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
 
-  openai:
-    base_url: https://api.openai.com/v1
-    api_key_env: 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
-
   x-ai:
     base_url: https://api.x.ai/v1
     api_key_env: X_AI_API_KEY
