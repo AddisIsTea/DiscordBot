@@ -153,7 +153,7 @@ async def on_message(new_msg: discord.Message) -> None:
 
     base_url = provider_config["base_url"]
     api_key = provider_config.get("api_key", "sk-no-key-required")
-    openai_client = AsyncOpenAI(base_url=base_url, api_key=api_key)
+    openai_client = AsyncOpenAI(base_url="https://openrouter.ai", api_key=api_key)
 
     model_parameters = config["models"].get(provider_slash_model, None)
 
