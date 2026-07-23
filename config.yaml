@@ -55,7 +55,7 @@ providers:
     base_url: http://localhost:8000/v1
 
 models:
-  openrouter/meta-llama/llama-3.3-70b-instruct:free:
+  openrouter/google/gemini-2.5-flash:free:
 
 system_prompt: |
   You are a snarky Discord chatbot. Be informative but harsh.
