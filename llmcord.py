@@ -345,3 +345,24 @@ try:
     asyncio.run(main())
 except KeyboardInterrupt:
     pass
+
+import http.server
+import threading
+import os
+
+# 建立一個極簡的 HTTP 回應處理器
+class DummyHandler(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-type", "text/plain")
+        self.end_headers()
+        self.wfile.write(b"Bot is alive!")
+
+# 讓網頁伺服器在獨立線程運行，完全不影響 Discord Bot
+def run_dummy_server():
+    port = int(os.environ.get("PORT", 10000))
+    server = http.server.HTTPServer(("0.0.0.0", port), DummyHandler)
+    print(f"🌍 虛擬伺服器已成功綁定 Port: {port}")
+    server.serve_forever()
+
+threading.Thread(target=run_dummy_server, daemon=True).start()
